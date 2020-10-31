@@ -1,0 +1,16 @@
+h2 index
+
+table.table.table-hover
+  thead.thead-default
+    tr
+      th= PostImage.human_attribute_name(:title)
+      th= PostImage.human_attribute_name(:body)
+      th= PostImage.human_attribute_name(:image)
+  tbody
+    - @post_images.each do |post_image|
+      tr
+        th= link_to post_image.title, post_image
+        th= post_image.body
+        th= attachment_image_tag post_image, :image, format: 'jepg', size: "100x100", fallback: "no_image.jpg"
+        - if current_user
+          th= link_to 'Destroy', post_image, method: :delete,remote: true, data: {confrim: "title 「#{post_image.title}」を削除します。よろしいですか？"}, class: 'btn btn-danger'
