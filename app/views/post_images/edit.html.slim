@@ -1,0 +1,12 @@
+h2 Edit
+= form_with model: @post_image, local: true do |f|
+  .form-group
+    = f.label :title
+    = f.text_field :title, class: 'form-control', id: 'post_image_title'
+  .form-group
+    = f.label :body
+    = f.text_area :body, class: 'form-control', id: 'post_image_body'
+  .form-group
+    = f.file_field :image, class: 'img_field', style: 'display: none;'
+    = attachment_image_tag @post_image, :image, fallback: 'no_image.jpg', onClick: "$('.img_field').click()", class: 'center-block img-thumbnail img-responsive img_prev'
+  = f.submit 'Update', class: 'btn btn-primary'
