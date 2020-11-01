@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require fullcalendar
  */
 
  @import "bootstrap-sprockets";
@@ -21,4 +22,9 @@
   cursor: pointer;
   opacity: 0.7;
   transform: scale(1.01, 1.01);
+ }
+
+ .datetime-form {
+ 	display: inline-block;
+ 	width: auto;
  }

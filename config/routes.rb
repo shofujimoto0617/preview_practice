@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   root 'homes#top'
   resources :post_images
   resources :users, only:[:show]
+  resources :events
+  get 'my_calendar', to: 'events#my_calendar'
 end
