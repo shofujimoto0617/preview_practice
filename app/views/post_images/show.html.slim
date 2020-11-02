@@ -8,9 +8,9 @@ table.table.table-hover
     tr
       th= PostImage.human_attribute_name(:body)
       td= @post_image.body
-    tr
-      th= PostImage.human_attribute_name(:image)
-      td= attachment_image_tag @post_image, :image, size: "150x150", format: 'jpeg', fallback: "no_image.jpg"
+.col-md-12
+  = attachment_image_tag @post_image, :image, fallback: 'no_image.jpg', class: 'center-block img-thumbnail img-responsive img_prev'
 
-= link_to 'Edit', edit_post_image_path, class: 'btn btn-primary'
-= link_to 'Destroy', post_image_path, method: :delete, data: {confirm: "title 「#{@post_image.title}」を削除します。よろしいですか？"}, class: 'btn btn-danger'
+= link_to 'Edit', edit_post_image_path, class: 'btn btn-primary form-control'
+br
+= link_to 'Destroy', post_image_path, method: :delete, data: {confirm: "title 「#{@post_image.title}」を削除します。よろしいですか？"}, class: 'btn btn-danger form-control'

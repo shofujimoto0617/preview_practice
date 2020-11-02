@@ -1,1 +1,16 @@
-Edit
+.col-md-8
+
+  h1.mt-5 Edit User info
+
+  = form_with model: @user, local: true do |f|
+    .form-group
+      = f.label :name
+      = f.text_field :name, class: 'form-control', id: 'user_name'
+    .form-group
+      = f.label :email
+      = f.text_field :email, class: 'form-control', id: 'user_email'
+    .form-group
+      = f.file_field :profile_image, class: 'img_field', style: 'display: none;'
+      = attachment_image_tag @user, :profile_image, fallback: 'no_image.jpg', onClick: "$('.img_field').click()", class: 'center-block img-thumbnail img-responsive img_prev'
+
+    = f.submit 'Update', class: 'btn btn-success form-control'
