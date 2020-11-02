@@ -11,4 +11,4 @@ h1 Post_image new
   .form-group
     = f.file_field :image, class: 'img_field', style: 'display: none;'
     = attachment_image_tag @post_image, :image, fallback: 'no_image.jpg', onClick: "$('.img_field').click()", class: 'center-block img-thumbnail img-responsive img_prev'
-  = f.submit '投稿', class: 'btn btn-primary'
+  = f.submit '投稿', class: 'btn btn-primary form-control'
