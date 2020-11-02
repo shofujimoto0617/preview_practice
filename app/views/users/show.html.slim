@@ -5,12 +5,14 @@
   table.table.table-hover
     tbody
       tr
+        td= attachment_image_tag @user, :profile_image, size: '150x150', format: 'jpeg', fallback: "no_image.jpg"
+      tr
         th= User.human_attribute_name(:name)
         td= @user.name
       tr
         th= User.human_attribute_name(:email)
         td= @user.email
-  = link_to 'Edit', edit_user_path(current_user), class: 'btn btn-primary form-control'
+  = link_to 'Edit', edit_user_path(current_user), class: 'btn btn-success form-control'
 
 .col-md-8
   h1.mt-5 User post images
