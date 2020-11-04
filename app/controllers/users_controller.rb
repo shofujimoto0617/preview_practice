@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   def show
   	@user = User.find(params[:id])
   	@post_images = @user.post_images
@@ -18,6 +19,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-  	params.require(:user).permit(:name, :email, :profile_image)
+  	params.require(:user).permit(:name, :email, :profile_image, :introduction)
   end
 end

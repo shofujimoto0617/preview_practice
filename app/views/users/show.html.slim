@@ -12,6 +12,9 @@
       tr
         th= User.human_attribute_name(:email)
         td= @user.email
+      tr
+        th= User.human_attribute_name(:introudction)
+        td= @user.introduction
   = link_to 'Edit', edit_user_path(current_user), class: 'btn btn-success form-control'
 
 .col-md-8
