@@ -14,3 +14,21 @@ table.table.table-hover
 = link_to 'Edit', edit_post_image_path, class: 'btn btn-primary form-control'
 br
 = link_to 'Destroy', post_image_path, method: :delete, data: {confirm: "title 「#{@post_image.title}」を削除します。よろしいですか？"}, class: 'btn btn-danger form-control'
+
+.col-md-12
+  = form_with model: [@post_image, @post_comment], local: true do |f|
+    .form-group
+      = f.text_field :comment, row: '5', class: 'form-control', placeholder: "コメントを入力"
+    = f.submit '送信', class: 'btn btn-lg btn-base-1 mt-20 pull-right'
+
+.col-md-10
+  h5 コメント
+  table.table.table-hover.mt-5
+    tbody
+      - @post_comments.each do |post_comment|
+        tr
+          th
+            = attachment_image_tag post_comment.user, :profile_image, format: 'jpeg', size: "80x80", fallback: 'no_image.jpg'
+            br
+            = post_comment.user.name
+          th= post_comment.comment
