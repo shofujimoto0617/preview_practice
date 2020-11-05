@@ -15,6 +15,12 @@
       tr
         th= User.human_attribute_name(:introudction)
         td= @user.introduction
+      tr
+        th follows
+        th= link_to @user.follower.count, following_user_path
+      tr
+        th follower
+        td= link_to @user.followed.count, followers_user_path
   = link_to 'Edit', edit_user_path(current_user), class: 'btn btn-success form-control'
 
 .col-md-8
