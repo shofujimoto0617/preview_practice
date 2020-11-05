@@ -2,6 +2,11 @@
 
   h1.mt-5 Edit User info
 
+  - if @user.errors.present?
+    ul#error_explanation
+      - @user.errors.full_messages.each do |message|
+        li= message
+
   = form_with model: @user, local: true do |f|
     .form-group
       = f.label :name
