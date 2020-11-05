@@ -5,7 +5,13 @@ Rails.application.routes.draw do
   resources :post_images do
   	resources :post_comments, only: [:create, :destroy]
   end
-  resources :users, only:[:show, :edit, :index, :update]
+  resources :users, only:[:show, :edit, :index, :update] do
+  	member do
+  	  get :following, :followers
+  	end
+  end
   resources :events
   get 'my_calendar', to: 'events#my_calendar'
+  post 'follow/:id' => 'relationships#follow', as: 'follow'
+  post 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow'
 end

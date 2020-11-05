@@ -5,6 +5,10 @@ class UsersController < ApplicationController
   	@post_images = @user.post_images
   end
 
+  def index
+  	@users = User.all
+  end
+
   def edit
   	@user = User.find(params[:id])
   end
@@ -14,6 +18,18 @@ class UsersController < ApplicationController
   	if @user.update(user_params)
   	  redirect_to user_path(current_user), notice: "ユーザー 「#{@user.name}」のデータを更新しました。"
   	end
+  end
+
+  def following
+  	@user = User.find(params[:id])
+  	@users = @user.following_user
+  	render 'show_follow'
+  end
+
+  def followers
+  	@user = User.find(params[:id])
+  	@users = @user.follower_user
+  	render 'show_follower'
   end
 
   private
