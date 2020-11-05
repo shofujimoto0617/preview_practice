@@ -3,14 +3,14 @@
   - if @users.count > 0
     table.table.table-hover
       - @users.each do |user|
-      tbody
-        tr
-          th
-            = attachment_image_tag user, :profile_image, format: 'jepg', size: "80x80", fallback: "no_image.jpg"
-            br
-            = user.name
-          th= user.introduction
-          - if current_user.following?(user)
-            th= link_to 'フォロー外す', unfollow_path(user.id), method: :post, class: 'btn btn-primary'
-          - else
-            th= link_to 'フォローする', follow_path(user.id), meth: :post, class: 'btn btn-success'
+        tbody
+          tr
+            th
+              = attachment_image_tag user, :profile_image, format: 'jepg', size: "80x80", fallback: "no_image.jpg"
+              br
+              = user.name
+            th= user.introduction
+            - if current_user.following?(user)
+              th= link_to 'フォロー外す', unfollow_path(user.id), method: :post, class: 'btn btn-primary'
+            - else
+              th= link_to 'フォローする', follow_path(user.id), meth: :post, class: 'btn btn-success'
