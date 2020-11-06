@@ -15,4 +15,6 @@ Rails.application.routes.draw do
   get 'my_calendar', to: 'events#my_calendar'
   post 'follow/:id' => 'relationships#follow', as: 'follow'
   post 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow'
+  get 'chat/:id' => 'chats#show', as: 'chat'
+  resources :chats, only: [:create]
 end

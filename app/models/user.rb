@@ -11,6 +11,8 @@ class User < ApplicationRecord
   has_many :following_user, through: :follower, source: :followed
   has_many :follower_user, through: :followed, source: :follower
   has_many :likes, dependent: :destroy
+  has_many :user_rooms
+  has_many :chats
   attachment :profile_image
 
 
