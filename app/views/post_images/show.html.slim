@@ -10,6 +10,8 @@ table.table.table-hover
     tr
       th= PostImage.human_attribute_name(:body)
       td= @post_image.body
+    tr
+      td= render 'like-button', post_image: @post_image
 .col-md-12
   = attachment_image_tag @post_image, :image, fallback: 'no_image.jpg', class: 'center-block img-thumbnail img-responsive img_prev'
 
