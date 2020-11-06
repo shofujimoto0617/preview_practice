@@ -74,3 +74,5 @@ gem 'kaminari'
 
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
+
+gem 'font-awesome-sass', '~> 5.4.1'
